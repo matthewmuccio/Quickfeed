@@ -7,7 +7,7 @@
 		echo "Failed to connect: " . mysqli_connect_errno();
 
 	// Using connection variable, insert test user into table.
-	$query = mysqli_query($conn, "INSERT INTO test VALUES ('1', 'Matthew')");
+	//$query = mysqli_query($conn, "INSERT INTO test VALUES ('1', 'Matthew')");
 ?>
 
 <!DOCTYPE html>
