@@ -9,6 +9,6 @@
 	<title>Quickfeed - Welcome</title>
 </head>
 <body>
-	<p>Quickfeed</p>
+	<h1>Welcome to Quickfeed!</h1>
 </body>
 </html>

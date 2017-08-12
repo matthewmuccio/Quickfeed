@@ -3,6 +3,8 @@
 	require 'config/config.php';
 	// Imports code that handles the account registration form.
 	require 'includes/form_handlers/register_handler.php';
+	// Imports code that handles the login form.
+	require 'includes/form_handlers/login_handler.php';
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +13,31 @@
 	<title>Quickfeed - Register</title>
 </head>
 <body>
+	<!-- Creating Quickfeed login form -->
+	<form action="register.php" method="POST">
+		<!-- Email address input -->
+		<input type="email" name="login_email" placeholder="Email address" value="<?php
+			if (isset($_SESSION['login_email']))
+				echo $_SESSION['login_email'];
+		?>" required>
+		<br>
+
+		<!-- Password input -->
+		<input type="password" name="login_password" placeholder="Password" required>
+		<br>
+
+		<!-- Log In button -->
+		<input type="submit" name="login_button" value="Log In">
+		<br>
+
+		<?php
+			// Checks if the incorrect email or password is in the error array, and if so echo it.
+			if (in_array("The email address or password you've entered was incorrect.<br>", $errorArray))
+				echo "The email address or password you've entered was incorrect.<br>";
+		?>
+		<br>
+	</form>
+
 	<!-- Creating Quickfeed user account registration form -->
 	<form action="register.php" method="POST">
 		<!-- First name input -->
