@@ -90,8 +90,8 @@
 		else
 		{
 			// Checks if the password is appropriate (only contains letters and/or numbers).
-			if (preg_match('/[^A-Za-z0-9]/', $password))
-				array_push($errorArray, "Passwords can only contain alphanumeric characters.<br>");
+			if (preg_match('/[^A-Za-z0-9!#$%&()*+,-.:;<=>?@_`{|}~^"\/\']/', $password))
+				array_push($errorArray, "Passwords can only contain certain characters. Please try again.<br>");
 		}
 
 		// Validates/checks if password is appropriate length.
@@ -148,8 +148,6 @@
 			$_SESSION['register_lastName'] = "";
 			$_SESSION['register_email'] = "";
 			$_SESSION['register_emailConfirm'] = "";
-
-
 		}
 	}
 ?>

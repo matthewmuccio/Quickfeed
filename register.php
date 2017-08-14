@@ -132,8 +132,8 @@
 					<?php
 						if (in_array("Passwords do not match.<br>", $errorArray))
 							echo "Passwords do not match.<br>";
-						else if (in_array("Passwords can only contain alphanumeric characters.<br>", $errorArray))
-							echo "Passwords can only contain alphanumeric characters.<br>";
+						else if (in_array("Passwords can only contain certain characters. Please try again.<br>", $errorArray))
+							echo "Passwords can only contain certain characters. Please try again.<br>";
 						else if (in_array("Password must be between 8-30 characters.<br>", $errorArray))
 							echo "Password must be between 8-30 characters.<br>";
 					?>

@@ -105,6 +105,7 @@ input[type="password"] {
 	height: 35px;
 	margin-bottom: 10px;
 	padding-left: 5px;
+	font-family: 'Bariol_Regular', sans-serif;
 }
 
 /** Handles hovering over input fields **/
@@ -112,6 +113,7 @@ input[type="text"]:hover,
 input[type="email"]:hover,
 input[type="password"]:hover {
 	border-color: #2ecc71;
+	font-family: 'Bariol_Regular', sans-serif;
 }
 
 /** Registration form **/
