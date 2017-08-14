@@ -102,20 +102,28 @@
 		// If errorArray is empty, meaning there are no errors present.
 		if (empty($errorArray))
 		{
-			// Encrypts password before sending to database.
-			$password = md5($password);
+			// Stores and encrypts password before sending to database.
+			$password = password_hash($_POST['register_password'], PASSWORD_DEFAULT, ['cost' => 12]);
+
 			// Generate username by concatenating first and last name.
 			$username = strtolower($firstName . "." . $lastName);
+
 			// Checks if someone else already has that username by querying to the database.
 			$checkUsernameQuery = mysqli_query($conn, "SELECT username FROM users WHERE username = '$username'");
+			
 			// Loops through the database checking for the number of users (rows) with the current username.
 			// Stops looping when username variable is an available username.
 			// If username exists, increment i.
 			$i = 0;
 			while (mysqli_num_rows($checkUsernameQuery) != 0)
 			{
+				// Stores the base username to be incremented (first.last).
+				$baseUsername = strtolower($firstName . "." . $lastName);
+				// Increment i by 1 each time the condition is true.
 				$i++;
-				$username = $username . $i;
+				// Continue to add i to the base username until it is unique.
+				$username = $baseUsername . $i;
+				// Checks if the new username is unique in the database, otherwise continue to loop.
 				$checkUsernameQuery = mysqli_query($conn, "SELECT username FROM users WHERE username = '$username'");
 			}
 
@@ -123,7 +131,7 @@
 			// Selects random number between 1 and 2 (only two options).
 			$rand = rand(1, 2);
 
-			// Depending on random number, gives usre a default profile picture.
+			// Depending on random number, gives the user a default profile picture.
 			if ($rand == 1)
 				$profilePicture = "assets/images/profile_pictures/defaults/profile_green.png";
 			else
@@ -140,6 +148,8 @@
 			$_SESSION['register_lastName'] = "";
 			$_SESSION['register_email'] = "";
 			$_SESSION['register_emailConfirm'] = "";
+
+
 		}
 	}
 ?>

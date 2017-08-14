@@ -11,12 +11,15 @@
 <html>
 <head>
 	<title>Quickfeed - Register</title>
+	<!-- Links stylesheet for register form. -->
 	<link rel="stylesheet" type="text/css" href="assets/css/register_stylesheet.css">
+	<!-- Loads jQuery in the web page. -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- Loads the jQuery script that handles hiding and showing login and register forms. -->
 	<script src="assets/js/register.js"></script>
 </head>
 <body>
-	<!-- Handles when the user clicks enter on one of the forms. -->
+	<!-- Handles when the user clicks enter on the register form. -->
 	<?php
 		if (isset($_POST['register_button']))
 		{
@@ -54,9 +57,8 @@
 
 					<!-- Password input -->
 					<input type="password" name="login_password" placeholder="Password" required>
-					<br>
-
-					<?php
+					<br
+>					<?php
 						// Checks if the incorrect email or password is in the error array, and if so echo it.
 						if (in_array("The email address or password you've entered was incorrect.<br>", $errorArray))
 							echo "The email address or password you've entered was incorrect.<br>";
@@ -104,7 +106,6 @@
 							echo $_SESSION['register_email'];
 					?>" required>
 					<br>
-
 					<!-- Confirm email address input -->
 					<input type="text" name="register_emailConfirm" placeholder="Confirm email address" value="<?php
 						if (isset($_SESSION['register_emailConfirm']))
@@ -124,7 +125,6 @@
 					<!-- Password input -->
 					<input type="password" name="register_password" placeholder="Password" required>
 					<br>
-
 					<!-- Confirm password input -->
 					<input type="password" name="register_passwordConfirm" placeholder="Confirm password" required>
 					<br>
@@ -141,7 +141,6 @@
 					<!-- Register Account button -->
 					<input type="submit" name="register_button" value="Register Account">
 					<br>
-
 					<!-- Alert user that their account has been created successfully after they click the Register Account button. -->
 					<?php
 						if (in_array("<span style='color: green;'>Account created successfully.</span><br>", $errorArray))
