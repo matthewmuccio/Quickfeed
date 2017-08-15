@@ -89,8 +89,11 @@
 			array_push($errorArray, "Passwords do not match.<br>");
 		else
 		{
+			// If the plaintext password (no strip tags) contains < or >, tell the user they cannot do so. This prevents a password with tags being used completely.
+			if (strpos($_POST['register_password'], '<') || strpos($_POST['register_password'], '>'))
+				array_push($errorArray, "Passwords can only contain certain characters. Please try again.<br>");
 			// Checks if the password is appropriate (only contains letters and/or numbers).
-			if (preg_match('/[^A-Za-z0-9!#$%&()*+,-.:;<=>?@_`{|}~^"\/\']/', $password))
+			if (preg_match('/[^A-Za-z0-9!\"#$%\'()*+,-\.\/:;=?@\[\\\\\]\^_`{|}~]/', $password))
 				array_push($errorArray, "Passwords can only contain certain characters. Please try again.<br>");
 		}
 

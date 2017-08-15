@@ -11,7 +11,7 @@
 <html>
 <head>
 	<title>Quickfeed - Register</title>
-	<!-- Links stylesheet for register form. -->
+	<!-- Links CSS stylesheet for register form. -->
 	<link rel="stylesheet" type="text/css" href="assets/css/register_stylesheet.css">
 	<!-- Loads jQuery in the web page. -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
